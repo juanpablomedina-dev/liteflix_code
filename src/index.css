@@ -1,0 +1,149 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Bebas Neue';
+  font-style: bolder;
+  font-weight: 700;
+  src: url("./assets/fonts/BebasNeue/BebasNeue-Bold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: 'Bebas Neue';
+  font-style: bold;
+  font-weight: 600;
+  src: url("./assets/fonts/BebasNeue/BebasNeue-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: 'Bebas Neue';
+  font-style: normal;
+  font-weight: 400;
+  src: url("./assets/fonts/BebasNeue/BebasNeue-Book.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: 'Bebas Neue';
+  font-style: lighter;
+  font-weight: 300;
+  src: url("./assets/fonts/BebasNeue/BebasNeue-Light.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: 'Bebas Neue';
+  font-style: thin;
+  font-weight: 200;
+  src: url("./assets/fonts/BebasNeue/BebasNeue-Thin.ttf") format("truetype");
+}
+
+body {
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 400;
+  color: white;
+  background-color: #242424;
+  font-size: 16px;
+  letter-spacing: 4px;
+  line-height: 16px;
+  scroll-behavior: smooth;
+}
+
+@layer utilities {
+  .text-thin {
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 200;
+  }
+
+  .text-light {
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 300;
+  }
+
+  .text-default {
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+  }
+
+  .text-bold {
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 600;
+  }
+
+  .text-bolder {
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 700;
+  }
+
+  .text-shadow {
+    --text-shadow-depth: 6px;
+    --text-shadow-color: 30;
+    text-shadow: 3px 3px var(--text-shadow-depth) rgb(var(--text-shadow-color),
+        var(--text-shadow-color),
+        var(--text-shadow-color));
+  }
+
+  .shadow-none {
+    --text-shadow-depth: 0px;
+  }
+
+  .shadow-lightest {
+    --text-shadow-depth: 20px;
+    --text-shadow-color: 80;
+  }
+
+  .shadow-light {
+    --text-shadow-depth: 16px;
+    --text-shadow-color: 70;
+  }
+
+  .shadow-medium {
+    --text-shadow-depth: 12px;
+    --text-shadow-color: 65;
+  }
+
+  .shadow-strong {
+    --text-shadow-depth: 10px;
+    --text-shadow-color: 45;
+  }
+
+  .shadow-strongest {
+    --text-shadow-depth: 8px;
+    --text-shadow-color: 30;
+  }
+
+  .shadowed-box {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
+  }
+
+  .lightly-shadowed-box {
+    box-shadow: 0 4px 8px 0 rgba(75, 75, 75, 0.2),
+      0 6px 20px 0 rgba(75, 75, 75, 0.19) !important;
+  }
+
+  .inner-shadowed-box {
+    -moz-box-shadow: inset 0 5px 7px rgba(200, 200, 200, 0.5) !important;
+    -webkit-box-shadow: inset 0 5px 7px rgba(200, 200, 200, 0.5) !important;
+    box-shadow: inset 0 5px 7px rgba(200, 200, 200, 0.5) !important;
+  }
+
+  .scrollbar-hidden::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.main-poster-blur {
+  background-image: linear-gradient(to bottom,
+      rgba(36, 36, 36, 0.2),
+      rgba(36, 36, 36, 0.2),
+      rgba(36, 36, 36, 0.2),
+      rgba(36, 36, 36, 0.2),
+      rgba(36, 36, 36, 0.3),
+      rgba(36, 36, 36, 0.3),
+      rgba(36, 36, 36, 0.3),
+      rgba(36, 36, 36, 0.5),
+      rgba(36, 36, 36, 0.5),
+      rgba(36, 36, 36, 0.95),
+      rgba(36, 36, 36, 1));
+}
