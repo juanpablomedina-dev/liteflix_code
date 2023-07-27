@@ -10,7 +10,7 @@ import {
   OvalIcon,
 } from "@components/icons";
 
-import userAvatar from "@assets/images/userAvatar.jpg";
+import userAvatar from "@assets/images/userAvatar.jpeg";
 
 function Navigation() {
   const [sidebarOpen, setSidebarOpen] = React.useState(false);
@@ -112,11 +112,12 @@ function Navigation() {
 
       <aside
         ref={sidebarRef}
-        aria-hidden={!sidebarOpen}
-        className="fixed right-0 pb-8 top-0 w-full h-full bg-lf-gray z-60 pt-20 transition duration-500 overflow-y-scroll aria-hidden:-translate-x-500 focus:outline-none | lg:bg-lf-gray/90 lg:aria-hidden:translate-x-500 lg:w-150"
+        aria-disabled={!sidebarOpen}
+        className="fixed right-0 pb-8 top-0 w-full h-full bg-lf-gray z-60 pt-20 transition duration-500 overflow-y-scroll aria-disabled:-translate-x-500 focus:outline-none | lg:bg-lf-gray/90 lg:aria-disabled:translate-x-500 lg:w-150"
       >
         {SIDEBAR_LINKS.map(({ text, goesTo, outstand, Icon }) => (
           <Link
+            tabIndex={sidebarOpen ? "0" : "-1"}
             onClick={() => setSidebarOpen(false)}
             data-outstand={outstand}
             className="group block py-4 mt-4 px-6 transition-all duration-200 text-light border-y-1 border-white/0 hover:text-bold hover:border-white/30 data-[outstand=true]:text-default data-[outstand=true]:my-6 hover:data-[outstand=true]:text-bold | lg:text-lf-lg lg:px-12 lg:mt-2"

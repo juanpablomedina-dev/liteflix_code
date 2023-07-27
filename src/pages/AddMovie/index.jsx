@@ -59,13 +59,13 @@ function AddMovie() {
       className="group pt-39 text-center overflow-hidden | lg:min-h-screen lg:pt-0 lg:flex lg:flex-col lg:justify-center lg:items-center"
     >
       <h3 className="text-lf-aqua text-bolder text-center text-lf-lg-2 leading-lf-relaxed transition-spacing duration-500 group-data-[submitted=true]:text-light group-data-[submitted=true]:mt-12 group-data-[submitted=true]:text-lf-3xl group-data-[submitted=true]:leading-lf-title">
-        {submitted ? (
-          <>
-            <span className="text-bold">LITE</span>FLIX
-          </>
-        ) : (
-          "AGREGAR PELÍCULA"
-        )}
+        {submitted
+          ? bp.isDesktop() && (
+              <>
+                <span className="text-bold">LITE</span>FLIX
+              </>
+            )
+          : "AGREGAR PELÍCULA"}
       </h3>
 
       {submitted ? (
