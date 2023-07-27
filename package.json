@@ -1,6 +1,7 @@
 {
   "name": "liteflix",
   "author": "juanpablomedina-dev",
+  "homepage": "https://juanpablomedina-dev.github.io/liteflix",
   "private": true,
   "version": "1.0.0",
   "type": "module",
