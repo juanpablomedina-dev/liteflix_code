@@ -7,5 +7,5 @@ export default [
 
   { path: "/agregar_pelicula", element: <AddMovie /> },
 
-  { path: "*", element: <NotFound /> },
+  { path: "/*", element: <NotFound /> },
 ];
