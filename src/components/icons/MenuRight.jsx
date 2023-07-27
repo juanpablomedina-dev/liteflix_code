@@ -1,4 +1,4 @@
-function Menu(props) {
+function MenuRight(props) {
   return (
     <svg
       width="1em"
@@ -17,4 +17,4 @@ function Menu(props) {
   );
 }
 
-export default Menu;
+export default MenuRight;

@@ -68,7 +68,7 @@ Then for the development-dependencies (not included in the build) there are two 
 
 ### Efficiency, Accesibility and Scalability.
 
-- **Lots of pure CSS**: All transitions and conditionally applied styling is made with mostly pure CSS and minimal JS, keeping everything flowing efficiently and smoothly.
+- **Lots of pure CSS**: All transitions and conditionally applied styling is mostly made with Tailwind (which falls back to pure CSS) and minimal JS, keeping everything flowing efficiently and smoothly.
 
 - **Efficient and well-thought React**: All components are deeply developed with efficiency in mind, trying to keep as less process-garbage as possible and minimizing renders.
 
@@ -80,4 +80,4 @@ Then for the development-dependencies (not included in the build) there are two 
 
 - **`JSDoc`s**: Everything in the project except the react components is formally documented with `JSDoc`s, helping the IntelliSense of editors and therefore be a huge help for development. They're highly worth the time.
 
-- **Comments and Readability**: Aside formal documentation, all code is written to be as readable as possible. It's also well commented without being annoying.
+- **Comments and Readability**: Aside from formal documentation, all code is written to be as readable as possible. It's also well commented without being annoying.

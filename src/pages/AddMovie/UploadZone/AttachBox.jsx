@@ -25,6 +25,8 @@ function AttachBox({ uploadState, onUploadFile, submitTried }) {
         if (files.length > 1) setInvalid("amount");
         else if (!SUPPORTED_FILE_CATEGORIES.includes(typeCategory))
           setInvalid("format");
+        else if (files[0].size > 1000 * MAX_KILOBYTES)
+          setInvalid("size"); //Optional size check
         else {
           setInvalid(false);
           onUploadFile(files[0]);
@@ -134,9 +136,12 @@ function AttachBox({ uploadState, onUploadFile, submitTried }) {
 
 const SUPPORTED_FILE_CATEGORIES = ["image"];
 
+const MAX_KILOBYTES = 500;
+
 const INVALID_MESSAGES = {
   amount: "SÓLO 1 ARCHIVO",
   format: "SÓLO IMÁGENES",
+  size: `MÁXIMO DE ${MAX_KILOBYTES} KB`,
 };
 
 export default AttachBox;

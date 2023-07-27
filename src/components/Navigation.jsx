@@ -6,7 +6,8 @@ import {
   BellIcon,
   PlusIcon,
   CloseIcon,
-  MenuIcon,
+  MenuRightIcon,
+  MenuLeftIcon,
   OvalIcon,
 } from "@components/icons";
 
@@ -42,6 +43,7 @@ function Navigation() {
     window.scroll({ top: 0, left: 0, behavior: "smooth" });
   }
 
+  const MenuIcon = bp.isDesktop() ? MenuRightIcon : MenuLeftIcon;
   const burgerButton = (
     <>
       <MenuIcon
