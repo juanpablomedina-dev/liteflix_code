@@ -96,7 +96,7 @@ function generateExtensions() {
   };
 
   ext.fontSize = {
-    "lf-6xl": "100px",
+    "lf-6xl": "120px",
     "lf-5xl": "76px",
     "lf-4xl": "60px",
     "lf-3xl": "44px",
@@ -112,6 +112,7 @@ function generateExtensions() {
   };
 
   ext.lineHeight = {
+    "lf-title-4": "100px",
     "lf-title-3": "77.5px",
     "lf-title-2": "60px",
     "lf-title": "44px",
@@ -124,6 +125,7 @@ function generateExtensions() {
   };
 
   ext.letterSpacing = {
+    "lf-title-2": "12px",
     "lf-title": "12px",
     "lf-wide": "6px",
     "lf-normal": "4px",

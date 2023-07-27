@@ -1,16 +1,20 @@
 import React from "react";
-import { VscMenu } from "react-icons/vsc";
-import { BsX, BsPlus, BsBell, BsDot } from "react-icons/bs";
 import { Link } from "react-router-dom";
 
-import userBordersVisibility from "../tools/hooks/useBordersVisibility";
-import useBreakpoint from "../tools/hooks/useBreakpoint";
+import { useBordersVisibility, useBreakpoint } from "@tools/hooks";
+import {
+  BellIcon,
+  PlusIcon,
+  CloseIcon,
+  MenuIcon,
+  OvalIcon,
+} from "@components/icons";
 
-import userAvatar from "../assets/images/userAvatar.jpg";
+import userAvatar from "@assets/images/userAvatar.jpg";
 
 function Navigation() {
   const [sidebarOpen, setSidebarOpen] = React.useState(false);
-  const visible = userBordersVisibility({
+  const visible = useBordersVisibility({
     pixelsForVisibleTop: 20,
     disable: "bottom-sensor",
   });
@@ -40,7 +44,8 @@ function Navigation() {
 
   const burgerButton = (
     <>
-      <VscMenu
+      <MenuIcon
+        onKeyDown={(e) => e.key == "Enter" && setSidebarOpen(true)}
         onClick={() => setSidebarOpen(true)}
         tabIndex={sidebarOpen ? undefined : "0"}
         className="absolute text-white/100 box-content p-1 cursor-pointer transition duration-500 -translate-y-20 group-hover:text-white/70 group-aria-expanded:text-white/70 group-hover:hover:text-white/100 group-hover:focus:text-white/100 group-aria-hidden:translate-y-0"
@@ -59,26 +64,41 @@ function Navigation() {
         className="group fixed z-70 px-6 py-4 text-lf-lg-3 w-full left-0 top-0 flex justify-between items-center transition-all duration-500 hover:aria-hidden:bg-lf-gray-darker aria-expanded:py-3 aria-expanded:aria-hidden:bg-lf-gray-darker | lg:px-20 lg:py-3"
       >
         {!bp.isDesktop() && burgerButton}
-        <BsX
+        <CloseIcon
+          onKeyDown={(e) => e.key == "Enter" && setSidebarOpen(false)}
           tabIndex={sidebarOpen ? "0" : undefined}
           onClick={() => setSidebarOpen(false)}
-          className="absolute text-white/70 w-10 h-10 box-content p-1 cursor-pointer transition duration-500 hover:text-white/100 focus:text-white/100 -translate-x-2 group-aria-hidden:opacity-0 group-aria-hidden:-translate-x-20 | lg:translate-x-0 lg:group-aria-hidden:translate-x-0 lg:group-aria-hidden:-translate-y-20 lg:right-130"
+          className="absolute text-white/70 w-5 h-5 box-content p-1 cursor-pointer transition duration-500 hover:text-white/100 focus:text-white/100 -translate-x-1 group-aria-hidden:opacity-0 group-aria-hidden:-translate-x-20 | lg:group-aria-hidden:translate-x-0 lg:group-aria-hidden:-translate-y-20 lg:right-131"
         />
 
-        <h2
-          onClick={onLogoClick}
-          tabIndex={visible.top ? undefined : "0"}
-          className="text-lf-xl text-light text-shadow shadow-strongest text-lf-aqua pt-1 cursor-pointer transition duration-100 hover:scale-110 focus:scale-110"
-        >
-          <span className="text-bold">LITE</span>FLIX
-        </h2>
+        <div className="flex justify-start items-center">
+          <h2
+            onClick={onLogoClick}
+            tabIndex={visible.top ? undefined : "0"}
+            className="text-lf-xl text-light text-shadow shadow-strongest text-lf-aqua pt-1 cursor-pointer transition duration-100 hover:scale-110 focus:scale-110 | lg:text-lf-2xl"
+          >
+            <Link to="/">
+              <span className="text-bold">LITE</span>FLIX
+            </Link>
+          </h2>
+          {bp.isDesktop() && (
+            <Link
+              onClick={() => setSidebarOpen(false)}
+              className="group/add_movie ml-10 text-lf-base-2 block px-2 py-1 bg-lf-gray/0 transition-all duration-200 hover:text-bold group-aria-expanded:bg-lf-gray/40"
+              to="/agregar_pelicula"
+            >
+              <PlusIcon className="inline-block mr-3 text-lf-base mb-1px transition duration-200 group-hover/add_movie:scale-120" />
+              AGREGAR PELÍCULA
+            </Link>
+          )}
+        </div>
 
         <div className="flex items-center">
           {bp.isDesktop() && burgerButton}
           {bp.isDesktop() && (
-            <button className="relative group flex items-center justify-center ml-4 p-1 text-white/100 cursor-pointer transition duration-300 group-hover:text-white/70 group-aria-expanded:text-white/70 group-hover:hover:text-white/100">
-              <BsBell />
-              <BsDot className="text-lf-aqua w-11 h-11 absolute -top-12px -right-12px" />
+            <button className="relative flex items-center justify-center ml-4 p-1 text-white/100 cursor-pointer transition duration-300 group-hover:text-white/70 group-aria-expanded:text-white/70 group-hover:hover:text-white/100">
+              <BellIcon />
+              <OvalIcon className="text-lf-aqua w-11px h-11px absolute top-3px right-4px" />
             </button>
           )}
           <img
@@ -93,7 +113,7 @@ function Navigation() {
       <aside
         ref={sidebarRef}
         aria-hidden={!sidebarOpen}
-        className="fixed right-0 top-0 w-full h-full bg-lf-gray z-60 pt-20 transition duration-500 overflow-y-scroll aria-hidden:-translate-x-200 focus:outline-none | lg:bg-lf-gray/90 lg:aria-hidden:translate-x-500 lg:w-150"
+        className="fixed right-0 pb-8 top-0 w-full h-full bg-lf-gray z-60 pt-20 transition duration-500 overflow-y-scroll aria-hidden:-translate-x-500 focus:outline-none | lg:bg-lf-gray/90 lg:aria-hidden:translate-x-500 lg:w-150"
       >
         {SIDEBAR_LINKS.map(({ text, goesTo, outstand, Icon }) => (
           <Link
@@ -104,7 +124,7 @@ function Navigation() {
             to={goesTo}
           >
             {Icon && (
-              <Icon className="inline-block text-lf-xl -ml-2 transition duration-200 group-hover:scale-120" />
+              <Icon className="inline-block mr-2 transition duration-200 group-hover:scale-120" />
             )}{" "}
             {text}
           </Link>
@@ -126,7 +146,7 @@ const SIDEBAR_LINKS = [
     text: "AGREGAR PELÍCULA",
     goesTo: "/agregar_pelicula",
     outstand: true,
-    Icon: BsPlus,
+    Icon: PlusIcon,
   },
   { text: "CERRAR SESIÓN", goesTo: "/" },
 ];

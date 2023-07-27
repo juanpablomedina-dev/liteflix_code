@@ -34,7 +34,7 @@ function useBreakpoint() {
   }
 
   return {
-    /**@type {import("@values/").ValidBreakpoint} */
+    /**@type {import("@static/index").ValidBreakpoint} */
     name: currentBpKey,
     isWiderThan,
     isDesktop,
@@ -52,6 +52,6 @@ const SORTED_BREAKPOINTS = Object.keys(BREAKPOINTS).sort(
   (bp1, bp2) => BREAKPOINTS[bp2] - BREAKPOINTS[bp1]
 );
 
-const LAST_MOBILE_BREAKPOINT = "tablet";
+const LAST_MOBILE_BREAKPOINT = "landscape"; //Inclusive
 
 export default useBreakpoint;
