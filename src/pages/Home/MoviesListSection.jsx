@@ -214,7 +214,7 @@ const AMOUNT_OF_MOVIES = 4;
 function getBackdrop(currentCtg, movieDetails) {
   switch (currentCtg) {
     case "popular":
-      return getBackdropURL(movieDetails.backdrop_path, false);
+      return getBackdropURL(movieDetails.backdrop_path, "low");
     case "myMovies":
       return localStorage.getItem(movieDetails.savedKey);
   }

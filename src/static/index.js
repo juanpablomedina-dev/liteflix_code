@@ -120,17 +120,26 @@ export function parseMovieTitle(title, breakpoint) {
   return { mainTitle, secondaryTitle, mainTitleLength };
 }
 
-/**Get the full URL of a backdrop image for the specified path. If `isMain`, the quality is the highest available.
+/**Get the full URL of a backdrop image for the specified path.
  * @param {string} backdropPath
- * @param {boolean} isMain
+ * @param {"very-high" | "high" | "average" | "low"} quality
  */
-export function getBackdropURL(backdropPath, isMain) {
+export function getBackdropURL(backdropPath, quality) {
   const config = JSON.parse(localStorage.getItem(CONFIG_LOCAL_STORAGE_NAME));
 
-  const baseImageURL = config.images.base_url;
+  const baseImageURL = config.images.secure_base_url;
   const availableSizes = config.images.backdrop_sizes;
 
-  const size = isMain ? availableSizes.at(-1) : availableSizes.at(-3); //For non-main movies, quality is the third-best.
+  var qualityNumber = 3;
+  //prettier-ignore
+  switch(quality){
+    case "very-high": qualityNumber = 1; break;
+    case "high": qualityNumber = 2; break;
+    case "average": qualityNumber = 3; break;
+    case "low": qualityNumber = 4; break;
+  }
+
+  const size = availableSizes.at(-qualityNumber);
 
   return `${baseImageURL}/${size}${backdropPath}`;
 }

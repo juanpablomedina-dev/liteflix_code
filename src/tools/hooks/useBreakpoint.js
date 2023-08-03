@@ -16,7 +16,7 @@ function useBreakpoint() {
 
   /**Checks if the current breakpoint is wider than the specified one.
    *
-   * @param {import("@values/").ValidBreakpoint} bpName Breakpoint to compare with the current one.
+   * @param {import("@static/index").ValidBreakpoint} bpName Breakpoint to compare with the current one.
    * @returns {boolean} The check result.
    */
   function isWiderThan(bpName) {

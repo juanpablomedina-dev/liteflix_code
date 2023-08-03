@@ -30,7 +30,14 @@ function MainMovie({ setMainMovieId }) {
 
       mainMovieValues.current = {
         id: mainMovie.id,
-        backdropURL: getBackdropURL(mainMovie.backdrop_path, true),
+        backdropURL: getBackdropURL(
+          mainMovie.backdrop_path,
+          bp.isWiderThan("landscape")
+            ? "very-high" //Desktop
+            : bp.isWiderThan("phone")
+            ? "high" //Tablets and landscape
+            : "average" //Phones
+        ),
         ...parsedTitle,
       };
 
