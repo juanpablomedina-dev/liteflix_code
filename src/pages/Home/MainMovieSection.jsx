@@ -32,11 +32,7 @@ function MainMovie({ setMainMovieId }) {
         id: mainMovie.id,
         backdropURL: getBackdropURL(
           mainMovie.backdrop_path,
-          bp.isWiderThan("landscape")
-            ? "very-high" //Desktop
-            : bp.isWiderThan("phone")
-            ? "high" //Tablets and landscape
-            : "average" //Phones
+          bp.isDesktop() ? "very-high" : "high"
         ),
         ...parsedTitle,
       };

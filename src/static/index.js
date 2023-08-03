@@ -141,7 +141,7 @@ export function getBackdropURL(backdropPath, quality) {
 
   const size = availableSizes.at(-qualityNumber);
 
-  return `${baseImageURL}/${size}${backdropPath}`;
+  return `${baseImageURL}${size}${backdropPath}`;
 }
 
 /**
